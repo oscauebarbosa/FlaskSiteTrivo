@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Receitas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.0.7/imask.min.js"></script> <!-- Importação da biblioteca InputMask -->
+</head>
+<body style="overflow: hidden;">
+
+<style>
+    body {
+        background-image: url('{{ url_for('static', filename='fundoadd.png') }}');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #FFF;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        text-align: center;
+        margin-top: 90px;
+        margin-bottom: 50px;
+    }
+
+    .logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    h1 {
+        margin-top: -10px;
+        font-size: 24px;
+        color: #7FFF00;
+    }
+
+    form {
+        display: inline-block;
+        border: 5px solid yellow;
+        padding: 20px;
+        background-color: 'black';
+        margin-bottom: 20px;
+        margin-top: 20px;
+        height: 454px;
+    }
+
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+
+    input {
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #FFF;
+        border-radius: 20px;
+        background-color: transparent;
+        width: 270px;
+        color: white;
+    }
+
+    .small-input {
+        display: inline-block;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #FFF;
+        border-radius: 10px;
+        background-color: transparent;
+        width: 100px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    button {
+        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #5269FF;
+        color: #FFF;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-right: 40px;
+        margin-left: 30px;
+    }
+
+    button:hover {
+        background-color: #3BBB44;
+    }
+
+    .txt1 {
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: -80px;
+        margin-right: 150px;
+    }
+
+    .txt2 {
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+</style>
+<div class="container">
+    <form action="caminho/para/o/destino" method="POST" style="margin-top: -59px;">
+        <img src="static/logoTrivoCompleta.png" alt="" class="logo">
+        <h1 style="font-size: 18px;">ADICIONAR RECEITAS</h1>
+        <div class="input-container">
+            <label for="input-grande">Nome da receita</label>
+            <input type="text" id="input-grande" name="input-grande" placeholder="Nome da receita">
+        </div>
+        <br>
+        <label class="txt1">Data</label>
+        <label class="txt2">Valor</label>
+        <div>
+            <input type="text" name="input-pequeno1" class="small-input" placeholder="DD/MM/YYYY">
+            <input type="text" name="input-pequeno2" class="small-input" placeholder="R$0,00">
+        </div>
+        <br>
+        <div class="button-container" style="margin-top: 20px; font-weight: bold;">
+            <button type="submit">Adicionar</button>
+            <button type="button" onclick="window.history.back()">Voltar</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    var dateMask = IMask(document.getElementsByName('input-pequeno1')[0], {
+        mask: '00/00/0000'
+    });
+
+    var moneyMask = IMask(document.getElementsByName('input-pequeno2')[0], {
+        mask: 'R$ num',
+        blocks: {
+            num: {
+                mask: Number,
+                thousandsSeparator: '.',
+                radix: ','
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
