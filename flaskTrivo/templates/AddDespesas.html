@@ -75,7 +75,7 @@
         font-size: 16px;
         border: 2px solid #FFF;
         border-radius: 10px;
-        background-color: transparent;
+        background-color: #373737;
         width: 100px;
         margin-right: 20px;
         margin-left: 20px;
@@ -119,19 +119,19 @@
 
 </style>
 <div class="container">
-    <form action="caminho/para/o/destino" method="POST" style="margin-top: -59px;">
+    <form action="/adddespesas" method="POST" style="margin-top: -59px;">
         <img src="static/logoTrivoCompleta.png" alt="" class="logo">
         <h1 style="font-size: 18px;">ADICIONAR DESPESAS</h1>
         <div class="input-container">
             <label for="input-grande">Nome da despesa</label>
-            <input type="text" id="input-grande" name="input-grande" placeholder="Nome da despesa">
+            <input type="text" id="input-grande" name="nome_despesa" placeholder="Nome da despesa">
         </div>
         <br>
         <label class="txt1">Data</label>
         <label class="txt2">Valor</label>
         <div>
-            <input type="text" name="input-pequeno1" class="small-input" placeholder="DD/MM/YYYY">
-            <input type="text" name="input-pequeno2" class="small-input" placeholder="R$0,00">
+                <input type="date" name="data" class="small-input" placeholder="DD/MM/YYYY" style="width:123px">
+            <input type="text" name="valor" class="small-input" placeholder="R$0,00">
         </div>
         <br>
         <div class="button-container" style="margin-top: 20px; font-weight: bold;">

@@ -64,8 +64,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="/addreceitas">Receitas</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="https://www.youtube.com/@primorico">Cursos</a>
+            </li>
+            <li>
+                <a href="/logout" class="btn">Sair</a>
             </li>
             <img src="/static/img.png" alt="" srcset="">
         </ul>
@@ -82,7 +86,7 @@
             <span style="margin-left: -43vw; color: #ffffffb3;">Gerenciamento Financeiro</span>
 
             <div style="margin-right: -10px;">
-                <span class="text-white me-0">Gustavo Donato</span>
+                <span class="text-white me-0">{{ nome_usuario }}</span>
                 <img src="/static/ftPerfil.png" alt="" srcset="" width="70" height="40" style="margin-left:30">
                 <img src="/static/logoCoroa.png" alt="" srcset="" width="40" height="30" style="margin-right: 20px;">
             </div>
@@ -92,7 +96,7 @@
         <div class="content" style="color:white">
             <div style="margin-top: -21px;color: white;font-size: 19px;margin-left: 8px;margin-top: 2px;">
                 <div>Rendimento</div>
-                <div style="font-weight: bold;">R$3800,80</div>
+                <div style="font-weight: bold;">R${{totalReceita - totalDespesa}}</div>
             </div>
 
             <div style="margin-left: 928px; margin-top: -39px;">
@@ -110,7 +114,7 @@
 
                     <div style="color: white; font-size: 15px; margin-top: -52px; margin-left: 91px;">
                         <div style="font-weight: bold;">Receitas</div>
-                        <div>R$3800,80</div>
+                        <div>R${{totalReceita}}</div>
                     </div>
 
                 </div>
@@ -122,7 +126,7 @@
 
                     <div style="color: white; font-size: 15px; margin-top: -52px; margin-left: 91px;">
                         <div style="font-weight: bold;">Despesas</div>
-                        <div>R$3800,80</div>
+                        <div>R${{totalDespesa}}</div>
                     </div>
                 </div>
             </div>

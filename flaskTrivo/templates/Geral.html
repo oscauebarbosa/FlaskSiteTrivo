@@ -48,7 +48,7 @@
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <br>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Início</a>
+                <a class="nav-link active" aria-current="page" href="/inicio">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/adddespesas">Despesas</a>
@@ -74,7 +74,7 @@
             <span style="margin-left: -43vw; color: #ffffffb3;">Gerenciamento Financeiro</span>
 
             <div style="margin-right: -10px;">
-                <span class="text-white me-0">Gustavo Donato</span>
+                <span class="text-white me-0">{{ nome_usuario }}</span>
                 <img src="/static/ftPerfil.png" alt="" srcset="" width="70" height="40" style="margin-left:30">
                 <img src="/static/logoCoroa.png" alt="" srcset="" width="40" height="30" style="margin-right: 20px;">
             </div>
@@ -82,8 +82,8 @@
     </nav>
     <main>
         <div style="margin-top: -21px;">
-            <div style="color: white; font-size: 15px; margin-left: 225px; margin-top: 42px;" >Rendimento</div>
-            <div style="color: yellow; font-size: 43px; margin-left: 223px; margin-top: -10px; font-weight: bold;" >R$3800,80</div>
+            <div style="color: white; font-size: 15px; margin-left: 225px; margin-top: 42px;">Rendimento</div>
+            <div style="color: yellow; font-size: 43px; margin-left: 223px; margin-top: -10px; font-weight: bold;">R${{totalReceita - totalDespesa}}</div>
         </div>
 
         <div style="margin-top: -50px; margin-left: -25px;">
@@ -95,7 +95,7 @@
 
                     <div style="color: white; font-size: 15px; margin-top: -52px; margin-left: 91px;">
                         <div style="font-weight: bold;">Receitas</div>
-                        <div>R$3800,80</div>
+                        <div>R${{totalReceita}}</div>
                     </div>
 
                     <div style="margin-left: 331px; margin-top: -39px;">
@@ -112,7 +112,7 @@
 
                     <div style="color: white; font-size: 15px; margin-top: -52px; margin-left: 91px;">
                         <div style="font-weight: bold;">Despesas</div>
-                        <div>R$3800,80</div>
+                        <div>R${{totalDespesa}}</div>
                     </div>
 
                     <div style="margin-left: 331px; margin-top: -39px;">
@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        <div class="linha" style="border-bottom: 1px solid #ffffff6b;margin-bottom: 20px;margin-top: 31px;"></div>
+        <div class="linha" style="border-bottom: 1px solid #ffffff6b; margin-bottom: 20px; margin-top: 31px;"></div>
 
         <div class="atualizacoes" style="margin-left: 227px; margin-top: -6px;">
             <div>
@@ -132,12 +132,22 @@
             </div>
 
             <div style="display: flex; margin-top: 10px;">
-                <div>
+                <div style="margin-right: 40px;">
                     <div style="color: yellow; font-size: 19px; font-weight: bold;">Receitas</div>
+                    <ul>
+                        {% for receita in ultimas_receitas %}
+                            <li style="color:white">{{ receita.nome_receita }} - R$ {{ receita.valor }} - {{ receita.data }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
 
-                <div style="margin-left: 543px;">
+                <div>
                     <div style="color: yellow; font-size: 19px; font-weight: bold;">Despesas</div>
+                    <ul>
+                        {% for despesa in ultimas_despesas %}
+                            <li style="color:white">{{ despesa.nome_despesa }} - R$ {{ despesa.valor }} - {{ despesa.data }}</li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>
